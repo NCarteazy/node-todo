@@ -43,8 +43,8 @@
 				<div class="checkbox"  ng-repeat="todo in todos">
                                   <label>
                                   <input type="checkbox" ng-model="todo.completed" ng-change="checked(todo)" id="todo.checker"> 
-                                  {{ todo.text }} <input type="button" ng-click="del(todo)" value="Delete"/>
-                                  <input type="button" ng-click="change(todo)" ng-show="todo.completed" class="btn btn-danger" value="Update" id="todo.rmbutton"/>
+                                  {{ todo.text }} <input type="button" class="btn btn-danger" ng-click="del(todo)" ng-show="todo.completed" value="Delete"/>
+                                  <input type="button" class = "btn btn-info" ng-click="change(todo)"   value="Update"/>
                                   </label>
                                  </div>
                              
