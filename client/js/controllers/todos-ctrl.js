@@ -21,8 +21,6 @@ angular.module('todoController', [])
 			
 			if(todo.completed) $scope.done++;
 			else $scope.done--;
-
-			$scope.loading = true;
 		};
 
 		// CREATE ==================================================================
