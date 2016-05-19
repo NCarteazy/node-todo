@@ -20,11 +20,11 @@ angular.module('todoController', [])
 			console.log("Checked" + todo.completed);
 			
 			if(todo.completed) {
-				todo.completed = false;
+				todo.checked = true;
 				$scope.done++;
 			}
 			else {
-				todo.completed = true;
+				todo.checked = false;
 				$scope.done--;
 			}
 		};
