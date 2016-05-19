@@ -4,7 +4,7 @@ angular.module('todoController', [])
 	.controller('mainController', ['$scope','$http','Todos', function($scope, $http, Todos) {
 		$scope.formData = {};
 		$scope.loading = true;
-		Todos.done = 0;
+		$scope.done = 0;
 
 		// GET =====================================================================
 		// when landing on the page, get all todos and show them
