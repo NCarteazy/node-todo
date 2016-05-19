@@ -38,13 +38,19 @@ module.exports = function(app) {
 
 	});
 
-	app.delete('/api/todos/*', function(req, res) {
-		Todo.find({
-		_id : req.originalUrl.substring(11)
-		}).remove().exec();
+	app.delete('/api/todos/d*', function(req, res) {
+		Todo.findById(req.originalUrl.substring(12)).remove().exec();
 		getTodos(res);
 	});	
 
+	app.put('/api/todos/p*', function(req, res) {
+		Todo.findByIdAndUpdate(req.originalUrl.substring(12), { 
+			$set: { text: req.body.text }
+			}, function (err, todo) {
+  				if (err) return handleError(err);
+		});
+		getTodos(res);
+	});
 
 	// application -------------------------------------------------------------
 	app.get('*', function(req, res) {
