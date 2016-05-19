@@ -22,7 +22,7 @@ angular.module('todoController', [])
 				.success(function(data) {
 					$scope.loading = false;
 					$scope.todos = data;
-				}
+				});
 		}
 
 		$scope.checked = function(todo) {
