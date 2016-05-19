@@ -17,13 +17,18 @@ angular.module('todoController', [])
 
 
 		$scope.checked = function(todo) {
-			Todos.findOne({ _id: todo._id }, function (err, doc){
-  			doc.completed = true;
-  			doc.save();
-			});
 			console.log("Checked" + todo.checkb);
+			
 			if(todo.completed) $scope.done++;
 			else $scope.done--;
+
+			$scope.loading = true;
+			Todos.changecompl(todo, todo.checkb)
+			.success(function(data) {
+				$scope.loading = false;
+				$scope.todos = data;
+				console.log("todoupdated");
+			});
 		};
 
 		// CREATE ==================================================================
