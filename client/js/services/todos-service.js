@@ -18,6 +18,9 @@ angular.module('todoService', [])
 			},
 			complete : function(todoData, upd) {
 				return $http.put('/api/todos/c' + todoData._id, upd);
+			},
+			snooze : function(todoData, upd) {
+				return $http.put('/api/todos/s' + todoData._id, upd);
 			}
 		}
 	}]);

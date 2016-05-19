@@ -17,7 +17,6 @@ angular.module('todoController', [])
 
 
 		$scope.checked = function(todo) {
-			
 			$scope.loading = true;
 			NS = !todo.completed;
 			console.log("Checked" + NS);
@@ -27,13 +26,25 @@ angular.module('todoController', [])
 					$scope.todos = data; // assign our new list of todos
 				});
 
-
+			todo.style = {text-decoration: line-through};
 			if(todo.completed) {
 				$scope.done++;
 			}
 			else {
 				$scope.done--;
 			}
+		};
+
+
+		$scope.snoozed = function(todo) {
+			$scope.loading = true;
+			NS = !todo.snoozed;
+			console.log("Checked" + NS);
+			Todos.snooze(todo, NS)
+				.success(function(data) {
+					$scope.loading = false;
+					$scope.todos = data; // assign our new list of todos
+				});
 		};
 
 		// CREATE ==================================================================

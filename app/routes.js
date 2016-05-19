@@ -54,9 +54,17 @@ module.exports = function(app) {
 	});
 
 	app.put('/api/todos/c*', function(req, res) {
-		console.log(res.body);
 		Todo.findByIdAndUpdate(req.originalUrl.substring(12), { 
 			$set: { completed: req.body }
+			}, function (err, todo) {
+  				if (err) return handleError(err);
+		});
+		getTodos(res);
+	});
+
+	app.put('/api/todos/s*', function(req, res) {
+		Todo.findByIdAndUpdate(req.originalUrl.substring(12), { 
+			$set: { snoozed: req.body }
 			}, function (err, todo) {
   				if (err) return handleError(err);
 		});
