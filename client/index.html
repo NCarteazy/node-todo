@@ -42,8 +42,8 @@
 
 				<div class="checkbox"  ng-repeat="todo in todos">
                                   <label>
-                                  <p ng-show="todo.snoozed" ng-model="todo.unsnoozed" ng-click="unsnoozer()"><<</p>
-                                  <p ng-show="todo.completed" ng-model="todo.snoozed" ng-click="snoozer()">>></p>
+                                  <p ng-show="todo.snoozed" ng-model="todo.unsnoozed" ng-click="unsnoozer(todo)"><<</p>
+                                  <p ng-show="todo.completed" ng-model="todo.snoozed" ng-click="snoozer(todo)">>></p>
                                   <input type="checkbox" ng-model="todo.completed" ng-change="checked(todo)" ng-checked="todo.completed" id="todo.checker"> 
                                   <p ng-style="todo.style">{{ todo.text }}</p> <input type="button" class="btn btn-danger" ng-click="del(todo)" ng-show="todo.completed" value="Delete"/>
                                   <input type="button" class = "btn btn-info" ng-click="change(todo)"   value="Update"/>
