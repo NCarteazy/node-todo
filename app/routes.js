@@ -39,7 +39,7 @@ module.exports = function(app) {
 	});
 
 	app.delete('/api/todos/d*', function(req, res) {
-		Todo.remove( {_id : req.originalUrl.substring(12)});
+		Todo.findById(req.originalUrl.substring(12)).remove().exec();
 		getTodos(res);
 	});	
 
