@@ -18,7 +18,7 @@ angular.module('todoController', [])
 
 		$scope.checked = function(todo) {
 			$scope.loading = true;
-			NS = !todo.completed;
+			NS = {body: !todo.completed};
 			console.log("Checked" + NS);
 			Todos.complete(todo, NS)
 				.success(function(data) {
@@ -38,7 +38,7 @@ angular.module('todoController', [])
 
 		$scope.snoozed = function(todo) {
 			$scope.loading = true;
-			NS = !todo.snoozed;
+			NS = {body: !todo.snoozed};
 			console.log("Checked" + NS);
 			Todos.snooze(todo, NS)
 				.success(function(data) {
