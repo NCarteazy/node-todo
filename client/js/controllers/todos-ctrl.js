@@ -17,13 +17,13 @@ angular.module('todoController', [])
 
 
 		$scope.checked = function(todo) {
-			console.log("Checked" + todo.checkb);
+			console.log("Checked" + todo.completed);
 			
 			if(todo.completed) $scope.done++;
 			else $scope.done--;
 
 			$scope.loading = true;
-			Todos.changecompl(todo, todo.checkb)
+			Todos.changecompl(todo, todo.completed)
 			.success(function(data) {
 				$scope.loading = false;
 				$scope.todos = data;
