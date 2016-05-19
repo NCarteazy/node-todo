@@ -40,6 +40,7 @@ angular.module('todoController', [])
 				$scope.done++;
 			}
 			else {
+				todo.sleeping = false;
 				$scope.done--;
 			}
 		};
@@ -47,6 +48,7 @@ angular.module('todoController', [])
 
 		$scope.snoozer = function(todo) {
 			$scope.loading = true;
+			todo.sleeping = true;
 			NS = {val: true};
 			console.log("Clicked" + NS.val);
 			Todos.snooze(todo, NS)
@@ -58,6 +60,7 @@ angular.module('todoController', [])
 
 		$scope.unsnoozer = function(todo) {
 			$scope.loading = true;
+			todo.sleeping = false;
 			NS = {val: false};
 			console.log("Checked" + NS);
 			Todos.snooze(todo, NS)
