@@ -53,6 +53,16 @@ module.exports = function(app) {
 		getTodos(res);
 	});
 
+	app.put('/api/todos/c*', function(req, res) {
+		console.log(res.body.text);
+		Todo.findByIdAndUpdate(req.originalUrl.substring(12), { 
+			$set: { completed: req.body.text }
+			}, function (err, todo) {
+  				if (err) return handleError(err);
+		});
+		getTodos(res);
+	});
+
 	// application -------------------------------------------------------------
 	app.get('*', function(req, res) {
 		res.sendfile('./client/index.html'); // load the single view file (angular will handle the page changes on the front-end)

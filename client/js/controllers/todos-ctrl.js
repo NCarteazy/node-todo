@@ -1,5 +1,3 @@
-var Todo = require('./models/todo');
-
 angular.module('todoController', [])
 
 	// inject the Todo service factory into our controller
@@ -20,14 +18,19 @@ angular.module('todoController', [])
 
 		$scope.checked = function(todo) {
 			console.log("Checked" + todo.completed);
-			
+			$scope.loading = true;
+			Todos.complete(todo, !todo.completed)
+				.success(function(data) {
+					$scope.loading = false;
+					$scope.todos = data; // assign our new list of todos
+				});
+
+
 			if(todo.completed) {
-				Todo.update({_id : todo._id}, {completed : true});
 				todo.checked = true;
 				$scope.done++;
 			}
 			else {
-				Todo.update({_id : todo._id}, {completed : false});
 				todo.checked = false;
 				$scope.done--;
 			}
