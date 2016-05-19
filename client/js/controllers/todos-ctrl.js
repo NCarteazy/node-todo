@@ -16,10 +16,9 @@ angular.module('todoController', [])
 			});
 
 
-		$scope.checked = function() {
-			console.log("Checked");
-			if($scope.checkbox) $scope.done++;
-			else $scope.done--;
+		$scope.checked = function(todo) {
+			console.log("Checked" + todo.checkb);
+			$scope.done++;
 		};
 
 		// CREATE ==================================================================
