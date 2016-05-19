@@ -17,10 +17,10 @@ angular.module('todoController', [])
 
 
 		$scope.checked = function(todo) {
+			Todos.update({ _id : todo._id}, {$set : {completed : todo.checkb}});
 			console.log("Checked" + todo.checkb);
-			if(todo.checkb) $scope.done++;
+			if(todo.completed) $scope.done++;
 			else $scope.done--;
-			todo.completed = todo.checkb;
 		};
 
 		// CREATE ==================================================================
