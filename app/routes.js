@@ -38,8 +38,16 @@ module.exports = function(app) {
 
 	});
 
+	app.delete('/api/todos/*', function(req, res) {
+		Todo.find({
+		text : req.originalUrl.substring(11)
+		}).remove().exec();
+		getTodos(res);
+	});	
+
+
 	// application -------------------------------------------------------------
 	app.get('*', function(req, res) {
-		res.sendfile('./public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
+		res.sendfile('./client/index.html'); // load the single view file (angular will handle the page changes on the front-end)
 	});
 };

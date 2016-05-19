@@ -34,5 +34,15 @@ angular.module('todoController', [])
 					});
 			}
 		};
+		
+		$scope.del = function(todo) {
+			console.log("Todo to be removed containins: " + todo.text);
+			Todos.del(todo)
+			.success(function(data) {
+				$scope.todos = data;
+				$scope.loading = false;
+				console.log("todoremoved");
+		});}
+		
 			
 	}]);
