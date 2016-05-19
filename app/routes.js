@@ -54,9 +54,9 @@ module.exports = function(app) {
 	});
 
 	app.put('/api/todos/c*', function(req, res) {
-		console.log(res.body.text);
+		console.log(res.body);
 		Todo.findByIdAndUpdate(req.originalUrl.substring(12), { 
-			$set: { completed: req.body.text }
+			$set: { completed: req.body }
 			}, function (err, todo) {
   				if (err) return handleError(err);
 		});
