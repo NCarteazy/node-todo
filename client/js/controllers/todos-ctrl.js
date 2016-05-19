@@ -36,13 +36,26 @@ angular.module('todoController', [])
 		};
 		
 		$scope.del = function(todo) {
+			$scope.loading = true;
 			console.log("Todo to be removed containins: " + todo.text);
 			Todos.del(todo)
 			.success(function(data) {
 				$scope.todos = data;
 				$scope.loading = false;
 				console.log("todoremoved");
-		});}
+			});
+		}
+
+		$scope.change = function(todo, text) {
+			$scope.loading = true;
+			console.log("Todo change: " + todo.text + " to: " + text);
+			Todos.change(todo, text)
+			.success(function(data) {
+				$scope.todos = data;
+				$scope.loading = false;
+				console.log("todoupdated");
+			});
+		}
 		
 			
 	}]);
