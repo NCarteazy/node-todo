@@ -19,7 +19,7 @@ angular.module('todoController', [])
 		$scope.checked = function(todo) {
 			$scope.loading = true;
 			NS = {body: !todo.completed};
-			console.log("Checked" + NS);
+			console.log("Checked" + NS.body);
 			Todos.complete(todo, NS)
 				.success(function(data) {
 					$scope.loading = false;
