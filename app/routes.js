@@ -40,7 +40,7 @@ module.exports = function(app) {
 	});
 
 	app.delete('/api/todos/r', function(req, res) {
-		Todo.remove({}, callback(err, data){
+		Todo.remove({}, function(err, data){
 			if(err)
 				console.log(err);	
 		});
