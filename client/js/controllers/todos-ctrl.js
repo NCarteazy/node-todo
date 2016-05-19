@@ -48,7 +48,7 @@ angular.module('todoController', [])
 		$scope.snoozer = function(todo) {
 			$scope.loading = true;
 			NS = {val: true};
-			console.log("Clicked" + NS);
+			console.log("Clicked" + NS.val);
 			Todos.snooze(todo, NS)
 				.success(function(data) {
 					$scope.loading = false;
