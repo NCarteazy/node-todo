@@ -33,10 +33,10 @@ angular.module('todoController', [])
 			Todos.complete(todo, NS)
 				.success(function(data) {
 					$scope.loading = false;
-					$scope.todos = data; // assign our new list of todos
+					$scope.otdos = data; // assign our new list of todos
 				});
 
-			$scope.todo.style = "{text-decoration: line-through}";
+			$scope.style = "{text-decoration: line-through}";
 			if(todo.completed) {
 				$scope.done++;
 			}
