@@ -45,9 +45,20 @@ angular.module('todoController', [])
 		};
 
 
-		$scope.snoozed = function(todo) {
+		$scope.snoozer = function(todo) {
 			$scope.loading = true;
-			NS = {val: !todo.snoozed};
+			NS = {val: true};
+			console.log("Clicked" + NS);
+			Todos.snooze(todo, NS)
+				.success(function(data) {
+					$scope.loading = false;
+					$scope.todos = data; // assign our new list of todos
+				});
+		};
+
+		$scope.unsnoozer = function(todo) {
+			$scope.loading = true;
+			NS = {val: false};
 			console.log("Checked" + NS);
 			Todos.snooze(todo, NS)
 				.success(function(data) {
