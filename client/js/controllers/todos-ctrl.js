@@ -17,9 +17,11 @@ angular.module('todoController', [])
 
 
 		$scope.checked = function(todo) {
-			console.log("Checked" + todo.completed);
+			
 			$scope.loading = true;
-			Todos.complete(todo, !todo.completed)
+			NS = !todo.completed;
+			console.log("Checked" + NS);
+			Todos.complete(todo, NS)
 				.success(function(data) {
 					$scope.loading = false;
 					$scope.todos = data; // assign our new list of todos
