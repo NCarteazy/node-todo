@@ -46,13 +46,14 @@ angular.module('todoController', [])
 			});
 		}
 
-		$scope.change = function(todo, text) {
+		$scope.change = function(todo) {
 			$scope.loading = true;
-			console.log("Todo change: " + todo.text + " to: " + text);
-			Todos.change(todo, text)
+			console.log("Todo change: " + todo.text + " to: " + $scope.formData);
+			Todos.change(todo, $scope.formData)
 			.success(function(data) {
-				$scope.todos = data;
+				$scope.formData = {};
 				$scope.loading = false;
+				$scope.todos = data;
 				console.log("todoupdated");
 			});
 		}
