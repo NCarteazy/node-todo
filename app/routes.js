@@ -44,6 +44,7 @@ module.exports = function(app) {
 	});	
 
 	app.put('/api/todos/p*', function(req, res) {
+		console.log(res.body.text);
 		Todo.findByIdAndUpdate(req.originalUrl.substring(12), { 
 			$set: { text: req.body.text }
 			}, function (err, todo) {
