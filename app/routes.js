@@ -64,6 +64,7 @@ module.exports = function(app) {
 	});
 
 	app.put('/api/todos/s*', function(req, res) {
+		console.log(req.body);
 		Todo.findByIdAndUpdate(req.originalUrl.substring(12), { 
 			$set: { snoozed: req.body }
 			}, function (err, todo) {
