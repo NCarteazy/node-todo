@@ -23,12 +23,6 @@ angular.module('todoController', [])
 			else $scope.done--;
 
 			$scope.loading = true;
-			Todos.changecompl(todo, todo.completed)
-			.success(function(data) {
-				$scope.loading = false;
-				$scope.todos = data;
-				console.log("todoupdated");
-			});
 		};
 
 		// CREATE ==================================================================

@@ -15,9 +15,6 @@ angular.module('todoService', [])
 			},
 			change : function(todoData, upd) {
 				return $http.put('/api/todos/p' + todoData._id, upd);
-			},
-			changecompl : function(todoData, upd) {
-				return $http.put('/api/todos/c' + todoData._id, upd);
 			}
 		}
 	}]);
