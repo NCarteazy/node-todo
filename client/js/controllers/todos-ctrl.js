@@ -17,7 +17,14 @@ angular.module('todoController', [])
 
 
 		$scope.checked = function(todo) {
-			Todos.update({ _id : todo._id}, {$set : {completed : todo.checkb}});
+			Todos.update(
+				{ _id : todo._id}, 
+				{$set : {completed : todo.checkb}}
+				,,
+				function(err, data){
+					if(err)
+						console.log(err);
+				});
 			console.log("Checked" + todo.checkb);
 			if(todo.completed) $scope.done++;
 			else $scope.done--;
