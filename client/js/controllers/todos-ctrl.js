@@ -26,7 +26,7 @@ angular.module('todoController', [])
 					$scope.todos = data; // assign our new list of todos
 				});
 
-			todo.style = {text-decoration: line-through};
+			todo.style = "{text-decoration: line-through}";
 			if(todo.completed) {
 				$scope.done++;
 			}
