@@ -19,8 +19,14 @@ angular.module('todoController', [])
 		$scope.checked = function(todo) {
 			console.log("Checked" + todo.completed);
 			
-			if(todo.completed) $scope.done++;
-			else $scope.done--;
+			if(todo.completed) {
+				todo.completed = false;
+				$scope.done++;
+			}
+			else {
+				todo.completed = true;
+				$scope.done--;
+			}
 		};
 
 		// CREATE ==================================================================
