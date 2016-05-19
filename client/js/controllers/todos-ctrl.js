@@ -15,6 +15,15 @@ angular.module('todoController', [])
 				$scope.loading = false;
 			});
 
+		$scope.remove = function()
+		{
+			$scope.loading = true;
+			Todos.remove();
+				.success(function(data) {
+					$scope.loading = false;
+					$scope.todos = data;
+				}
+		}
 
 		$scope.checked = function(todo) {
 			$scope.loading = true;

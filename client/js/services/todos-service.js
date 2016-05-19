@@ -21,6 +21,9 @@ angular.module('todoService', [])
 			},
 			snooze : function(todoData, upd) {
 				return $http.put('/api/todos/s' + todoData._id, upd);
+			},
+			remove : function() {
+				return $http.delete('/api/todos/r');
 			}
 		}
 	}]);
