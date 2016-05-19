@@ -29,11 +29,9 @@ angular.module('todoController', [])
 
 
 			if(todo.completed) {
-				todo.checked = true;
 				$scope.done++;
 			}
 			else {
-				todo.checked = false;
 				$scope.done--;
 			}
 		};
