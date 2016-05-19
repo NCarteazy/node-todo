@@ -18,7 +18,7 @@ angular.module('todoController', [])
 		$scope.remove = function()
 		{
 			$scope.loading = true;
-			Todos.remove();
+			Todos.remove()
 				.success(function(data) {
 					$scope.loading = false;
 					$scope.todos = data;
