@@ -33,7 +33,7 @@
 
 		<!-- HEADER AND TODO COUNT -->
 		<div class="jumbotron text-center">
-			<h1>I'm a Todo-app <span class="label label-info">{{ todos.length }}</span> <span class="label label-warning">{{ todos.done }}</span></h1>
+			<h1>I'm a Todo-app <span class="label label-info">{{ todos.length }}</span> <span class="label label-danger">{{ done }}</span></h1>
 		</div>
 
 		<!-- TODO LIST -->
@@ -42,9 +42,9 @@
 
 				<div class="checkbox"  ng-repeat="todo in todos">
                                   <label>
-                                  <input type="checkbox"> 
+                                  <input type="checkbox" ngModel="checkbox" ngChange="checked()"> 
                                   {{ todo.text }} <input type="button" ng-click="del(todo)" value="Delete"/>
-                                  <input type="button" ng-click="change(todo)" value="Update"/>
+                                  <input type="button" ng-click="change(todo)" ng-show="checkbox" class="btn btn-danger" value="Update" id="rmbutton"/>
                                   </label>
                                  </div>
                              
