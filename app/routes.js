@@ -56,7 +56,7 @@ module.exports = function(app) {
 
 	app.put('/api/todos/c*', function(req, res) {
 		Todo.findByIdAndUpdate(req.originalUrl.substring(12), { 
-			$set: { completed: req.body.body }
+			$set: { completed: req.body.val }
 			}, function (err, todo) {
   				if (err) return handleError(err);
 		});
@@ -64,9 +64,9 @@ module.exports = function(app) {
 	});
 
 	app.put('/api/todos/s*', function(req, res) {
-		console.log(req.body.body);
+		console.log(req.body.val);
 		Todo.findByIdAndUpdate(req.originalUrl.substring(12), { 
-			$set: { snoozed: req.body.body }
+			$set: { snoozed: req.body.val }
 			}, function (err, todo) {
   				if (err) return handleError(err);
 		});
