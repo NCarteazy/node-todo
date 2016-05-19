@@ -23,6 +23,7 @@ angular.module('todoController', [])
 					$scope.loading = false;
 					$scope.todos = data;
 				});
+				$scope.done = 0;
 		}
 
 		$scope.checked = function(todo) {
@@ -35,7 +36,7 @@ angular.module('todoController', [])
 					$scope.todos = data; // assign our new list of todos
 				});
 
-			todo.style = "{text-decoration: line-through}";
+			$scope.todo.style = "{text-decoration: line-through}";
 			if(todo.completed) {
 				$scope.done++;
 			}
